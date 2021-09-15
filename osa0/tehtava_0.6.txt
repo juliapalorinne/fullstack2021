@@ -1,0 +1,20 @@
+title Tehtävä 0.6
+
+note over selain:
+Selain lähettää käyttäjän kirjoittaman
+viestin palvelimelle.
+end note
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over palvelin:
+Jos lähetys ja vastaanotto onnistuu, teksti
+lisätään tietokantaan.
+end note
+
+palvelin-->selain: 201 created
+
+note over selain:
+Sivua ei haeta uudelleen palvelimelta vaan
+viesti lisätään jo selaimella olevalle listalle.
+end note

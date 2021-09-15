@@ -1,0 +1,20 @@
+title Tehtävä 0.5
+
+note over selain:
+Selain lähettää sivupyynnön palvelimelle.
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+
+note over palvelin:
+Sivu viesteineen haetaan palvelimelta 
+ja lähetetään selaimelle.
+end note
+
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [...,{"content":"I'm sending a message","date":"2021-09-15T18:03:58.648Z"},...]

@@ -1,0 +1,28 @@
+title Tehtävä 0.4
+
+note over selain:
+Selain lähettää käyttäjän kirjoittaman
+viestin palvelimelle.
+end note
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over palvelin:
+Jos lähetys ja vastaanotto onnistuu, teksti
+lisätään tietokantaan.
+end note
+
+palvelin-->selain: redirect
+
+note over selain:
+Sivu viesteineen haetaan uudelleen.
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [...,{"content":"I'm sending a message","date":"2021-09-15T18:03:58.648Z"},...]
