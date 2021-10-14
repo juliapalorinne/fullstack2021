@@ -3,7 +3,9 @@ import React, { useState } from 'react'
 
 const Statistics = (props) => {
   const all = props.good + props.neutral + props.bad
-  
+  const av = (props.good - props.bad) / all
+  const pos = 100 * props.good / all
+
   return (
     <div>
       <h1>Statistics</h1>
@@ -11,6 +13,8 @@ const Statistics = (props) => {
       <p>neutral: {props.neutral}</p>
       <p>bad: {props.bad}</p>
       <p>all: {all}</p>
+      <p>average: {av}</p>
+      <p>positive: {pos} %</p>
     </div>
   )
 }
