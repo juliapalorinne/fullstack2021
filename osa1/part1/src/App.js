@@ -1,32 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
-const Hello = (props) => {
+const History = (props) => {
+  if (props.allClicks.length === 0) {
+    return (
+      <div>
+        the app is used by pressing the buttons
+      </div>
+    )
+  }
+
   return (
     <div>
-      <p>Hello {props.name}, you are {props.age} years old</p>
+      button press history: {props.allClicks.join(' ')}
     </div>
   )
 }
 
+const Button = ({ handleClick, text }) => (
+  <button onClick={handleClick}>
+    {text}
+  </button>
+)
+
 const App = () => {
-  const ika = 10;
-  const nimi = 'Jari'
-  let ika2 = 12
-  const taulukko = [1, 2, 3]
-  taulukko.push(4)
-  const taulukko2 = taulukko.concat(5)
-  const taulukko3 = taulukko2.map(value => value*value)
+  const [left, setLeft] = useState(0)
+  const [right, setRight] = useState(0)
+  const [allClicks, setAll] = useState([])
+
+  const handleLeftClick = () => {
+    setAll(allClicks.concat('L'))
+    setLeft(left + 1)
+  }
+
+  const handleRightClick = () => {
+    setAll(allClicks.concat('R'))
+    setRight(right + 1)
+  }
 
   return (
-    <>
-      <h1>Greetings</h1>
-      <Hello name="Sari" age={ika2} />
-      <Hello name={nimi} age={ika} />
-      <p>{taulukko}</p>
-      <p>{taulukko2}</p>
-      <p>{taulukko3}</p>
-    </>
+    <div>
+      <div>
+        {left}
+        <Button handleClick={handleLeftClick} text='left' />
+        <Button handleClick={handleRightClick} text='right' />
+        {right}
+        <History allClicks={allClicks} />
+      </div>
+    </div>
   )
 }
 
