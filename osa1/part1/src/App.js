@@ -1,28 +1,32 @@
 import React from 'react'
 
-const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
 
+const Hello = (props) => {
   return (
     <div>
-      <h1>{course}</h1>
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      <p>Hello {props.name}, you are {props.age} years old</p>
     </div>
+  )
+}
+
+const App = () => {
+  const ika = 10;
+  const nimi = 'Jari'
+  let ika2 = 12
+  const taulukko = [1, 2, 3]
+  taulukko.push(4)
+  const taulukko2 = taulukko.concat(5)
+  const taulukko3 = taulukko2.map(value => value*value)
+
+  return (
+    <>
+      <h1>Greetings</h1>
+      <Hello name="Sari" age={ika2} />
+      <Hello name={nimi} age={ika} />
+      <p>{taulukko}</p>
+      <p>{taulukko2}</p>
+      <p>{taulukko3}</p>
+    </>
   )
 }
 
