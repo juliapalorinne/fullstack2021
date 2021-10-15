@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const Statistics = (props) => {
   const all = props.good + props.neutral + props.bad
   const av = (props.good - props.bad) / all
-  const pos = 100 * props.good / all
+  const pos = (100 * props.good / all) + " %"
 
   if (all === 0) {
     return (
@@ -29,7 +29,7 @@ const Statistics = (props) => {
 }
 
 const StatisticLine = (props) => {
-  return (<p>{props.text}: {props.value}</p>)
+  return (<tr><td style={{width: 80}}>{props.text}</td><td>{props.value}</td></tr>)
 }
 
 
