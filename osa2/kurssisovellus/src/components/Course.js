@@ -17,12 +17,10 @@ const Part = (props) => {
 }
 
 const Total = (props) => {
-  let total = 0
-  props.parts.forEach(part => {
-    total += part.exercises
-  })
+  const total = props.parts.map(p => p.exercises)
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
   return (
-    <p><b>total of {total} exercises</b></p>
+    <p><b>total of {total.reduce(reducer)} exercises</b></p>
   )
 }
 
